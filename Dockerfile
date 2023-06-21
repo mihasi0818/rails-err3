@@ -22,6 +22,8 @@ ADD ./src/Gemfile.lock $APP_ROOT/Gemfile.lock
 
 # gemfileのinstall
 RUN bundle install
+
+# srcディレクトリを追加
 ADD ./src $APP_ROOT
 
 # puma.sockを配置するディレクトリを作成
