@@ -16,15 +16,12 @@ RUN mkdir /dnprp-app
 ENV APP_ROOT /dnprp-app
 WORKDIR $APP_ROOT
 
-# gemfileを追加する
-ADD ./src/Gemfile $APP_ROOT/Gemfile
-ADD ./src/Gemfile.lock $APP_ROOT/Gemfile.lock
-
-# gemfileのinstall
-RUN bundle install
-
 # srcディレクトリを追加
 ADD ./src $APP_ROOT
+
+# gemfileのinstall
+RUN gem install bundler -v '2.3.10'
+RUN bundle install
 
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
