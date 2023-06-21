@@ -29,4 +29,6 @@ COPY . $APP_ROOT/
 
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
-CMD ["./entrypoint.sh"]
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
