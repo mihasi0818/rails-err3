@@ -1,7 +1,9 @@
+bin/render-build.sh内
 #!/usr/bin/env bash
 # exit on error
 set -o errexit
 
 bundle install
-bundle exec rails db:migrate
-bundle exec rails db:seed_fu
+bundle exec rake assets:precompile
+bundle exec rake assets:clean
+bundle exec rake db:migrate
