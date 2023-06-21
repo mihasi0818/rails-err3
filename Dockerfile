@@ -29,3 +29,4 @@ COPY . $APP_ROOT/
 
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
+ENTRYPOINT ["entrypoint.sh"]
